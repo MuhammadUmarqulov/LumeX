@@ -19,8 +19,4 @@
     <ProjectReference Include="..\Lumex.Domain\Lumex.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
-
 </Project>
