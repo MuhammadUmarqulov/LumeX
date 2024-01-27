@@ -2,6 +2,7 @@
 using Lumex.Data.Repositories;
 using Lumex.Domain.Entities;
 using Lumex.Service.Interfaces;
+using Lumex.Service.IServices;
 using Lumex.Service.Services;
 using Lumex.Services.Interfaces;
 using Lumex.Services.Mappers;
@@ -22,10 +23,11 @@ namespace Lumex.Api.Extensions
 
             // repositories
             services.AddScoped<IGenericRepository<User>, GenericRepository<User>>();
-
+            services.AddScoped<IGenericRepository<Input>, GenericRepository<Input>>();
             // services
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IInputService, InputService>();
         }
 
         public static void ConfigureJwt(this IServiceCollection services, IConfiguration configuration)
