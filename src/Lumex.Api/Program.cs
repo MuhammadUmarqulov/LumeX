@@ -1,3 +1,4 @@
+using Lumex.Api.Extensions;
 using Lumex.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,8 +11,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// database configuration
 builder.Services.AddDbContext<AppDbContext>(option =>
     option.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// services
+builder.Services.AddCustomServices();
+builder.Services.AddSwaggerGen();
+builder.Services.ConfigureJwt(builder.Configuration);
+builder.Services.AddSwaggerService();
+
 
 var app = builder.Build();
 

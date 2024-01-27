@@ -1,12 +1,8 @@
 ﻿using AutoMapper;
 using Lumex.Domain.Entities;
+using Lumex.Service.DTOs.Users;
 using Lumex.Services.DTOs.Inputs;
 using Lumex.Services.DTOs.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lumex.Services.Mappers
 {
@@ -15,12 +11,13 @@ namespace Lumex.Services.Mappers
         public MappingProfile()
         {
             // users
-            CreateMap<UserForCreationDTO, User>();
-            CreateMap<UserForUpdateDTO, User>();    
-            CreateMap<UserForViewModel, User>();
+            CreateMap<UserForCreationDTO, User>().ReverseMap();
+            CreateMap<UserForUpdateDTO, User>().ReverseMap();
+            CreateMap<UserForViewModel, User>().ReverseMap();
+            CreateMap<UserForLoginDTO, User>().ReverseMap();
 
             // input
-            CreateMap<InputForCreationDTO, Input>();
+            CreateMap<InputForCreationDTO, Input>().ReverseMap();
         }
     }
 }

@@ -16,21 +16,8 @@ namespace Lumex.Data.Repositories
             this._dbSet = dbContext.Set<TSource>();
         }
 
-        /// <inheritdoc cref="IRepository{TSource}.AddAsync" />
-        public async ValueTask<TSource?> AddAsync(
-            TSource? entity, bool withSaveChanges = false,
-            CancellationToken token = default)
-        {
-            if (token.IsCancellationRequested)
-                await ValueTask.FromCanceled(token);
-
-            var entry = await _dbSet.AddAsync(entity, token);
-
-            if (withSaveChanges)
-                await SaveChangesAsync(token);
-
-            return entry.Entity;
-        }
+        public async ValueTask<TSource> AddAsync(TSource entity) =>
+            (await dbContext.AddAsync(entity)).Entity;
 
         public async ValueTask<bool> DeleteAsync(
         TSource? entity, bool withSaveChanges = false,
