@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Lumex.Services.Exceptions
+﻿namespace Lumex.Services.Exceptions
 {
     public class LumexException : Exception
     {

@@ -20,7 +20,7 @@ namespace Lumex.Data.IRepositories
         /// <param name="withSaveChanges">A flag indicating whether to save changes after the entity is added.</param>
         /// <param name="token">The cancellation token used to cancel the operation.</param>
         /// <returns>A task that represents the asynchronous add operation. The result of the task is the added entity.</returns>
-        ValueTask<TSource?> AddAsync(TSource? entity, bool withSaveChanges = false, CancellationToken token = default);
+        ValueTask<TSource> AddAsync(TSource entity);
 
         /// <summary>
         /// Asynchronously retrieves the first entity that matches a given expression, with the option to include related entities.
